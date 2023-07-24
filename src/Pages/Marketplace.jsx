@@ -1,10 +1,12 @@
 import NavBar from "../components/NavBar";
+import PropertyCardComponent from "../components/PropertyCardComponent";
 
 export default function Marketplace() {
   return (
     <>
       <NavBar />
-      <h1>Marketplace</h1>
+
+      <PropertyCardComponent />
     </>
   );
 }
