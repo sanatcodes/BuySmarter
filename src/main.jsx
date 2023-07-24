@@ -2,10 +2,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App.jsx";
 import About from "./Pages/About.jsx";
 import Home from "./Pages/Home.jsx";
 import Marketplace from "./Pages/MarketPlace.jsx";
+import WholesalerOnobarding from "./Pages/wholesaler/WholesalerOnobarding.jsx";
 
 const rootElement = document.getElementById("root");
 const router = createBrowserRouter([
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+  },
+  {
+    path: "/wholesale",
+    element: <WholesalerOnobarding />,
   },
 ]);
 
