@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Button,
   useColorMode,
   useColorModeValue,
   IconButton,
@@ -32,7 +31,7 @@ const NavBar = () => {
       <Box>
         <NavLink to="/">
           <Image
-            w={{ base: "80px", md: "150px" }}
+            w={{ base: "120px", md: "150px" }}
             src={colorMode === "dark" ? darkLogo : lightLogo}
             objectFit={"contain"}
             alt=" Logo"
@@ -94,7 +93,7 @@ const NavBar = () => {
           color={color}
           _hover={{ color: "red.500" }}
         />
-        <Box mx={2} my={2}>
+        <Box mx={2}>
           <NavLink
             exact
             to="/"
@@ -102,10 +101,10 @@ const NavBar = () => {
             onClick={() => setShow(false)}
           >
             <Image
-              boxSize="70px"
+              boxSize="100px"
               src={colorMode === "dark" ? darkLogo : lightLogo}
               objectFit={"contain"}
-              alt="Enfy Logo"
+              alt="Logo"
             />
           </NavLink>
         </Box>
@@ -122,21 +121,11 @@ const NavBar = () => {
         <Box mx={2} my={2}>
           <NavLink
             exact
-            to="/artGenerator"
+            to="/marketplace"
             activeClassName="active"
             onClick={() => setShow(false)}
           >
-            Art Generator
-          </NavLink>
-        </Box>
-        <Box mx={2} my={2}>
-          <NavLink
-            exact
-            to="/gallery"
-            activeClassName="active"
-            onClick={() => setShow(false)}
-          >
-            Gallery
+            Marketplace
           </NavLink>
         </Box>
         <Box mx={2} my={2}>

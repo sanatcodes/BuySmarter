@@ -1,5 +1,10 @@
-import React from "react";
+import NavBar from "../components/NavBar";
 
 export default function Marketplace() {
-  return <div>MarketPlace</div>;
+  return (
+    <>
+      <NavBar />
+      <h1>Marketplace</h1>
+    </>
+  );
 }

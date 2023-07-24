@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import About from "./Pages/About";
 import Home from "./Pages/Home";
 import Marketplace from "./Pages/MarketPlace";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/marketplace" component={Marketplace} />
         </Routes>
+        <Footer />
       </ChakraProvider>
     </>
   );
