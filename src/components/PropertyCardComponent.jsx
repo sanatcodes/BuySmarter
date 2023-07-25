@@ -1,23 +1,20 @@
 import { StarIcon } from "@chakra-ui/icons";
 import { Badge, Box, Image } from "@chakra-ui/react";
+import PropTypes from "prop-types";
 
-export default function PropertyCardComponent() {
-  const property = {
-    imageUrl: "https://bit.ly/2Z4KKcF",
-    imageAlt: "Rear view of modern home with pool",
-    beds: 3,
-    baths: 2,
-    title: "Modern home in city center in the heart of historic Los Angeles",
-    formattedPrice: "$1,900.00",
-    reviewCount: 34,
-    rating: 4,
-  };
-
+export default function PropertyCardComponent({ property }) {
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <Box
+      maxW="sm"
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      p={4}
+      mb={4}
+    >
       <Image src={property.imageUrl} alt={property.imageAlt} />
 
-      <Box p="6">
+      <Box mt={2}>
         <Box display="flex" alignItems="baseline">
           <Badge borderRadius="full" px="2" colorScheme="teal">
             New
@@ -28,14 +25,14 @@ export default function PropertyCardComponent() {
             letterSpacing="wide"
             fontSize="xs"
             textTransform="uppercase"
-            ml="2"
+            ml={2}
           >
             {property.beds} beds &bull; {property.baths} baths
           </Box>
         </Box>
 
         <Box
-          mt="1"
+          mt={1}
           fontWeight="semibold"
           as="h4"
           lineHeight="tight"
@@ -51,7 +48,7 @@ export default function PropertyCardComponent() {
           </Box>
         </Box>
 
-        <Box display="flex" mt="2" alignItems="center">
+        <Box display="flex" mt={2} alignItems="center">
           {Array(5)
             .fill("")
             .map((_, i) => (
@@ -60,7 +57,7 @@ export default function PropertyCardComponent() {
                 color={i < property.rating ? "teal.500" : "gray.300"}
               />
             ))}
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
+          <Box as="span" ml={2} color="gray.600" fontSize="sm">
             {property.reviewCount} reviews
           </Box>
         </Box>
@@ -68,3 +65,16 @@ export default function PropertyCardComponent() {
     </Box>
   );
 }
+
+PropertyCardComponent.propTypes = {
+  property: PropTypes.shape({
+    imageUrl: PropTypes.string.isRequired,
+    imageAlt: PropTypes.string.isRequired,
+    beds: PropTypes.number.isRequired,
+    baths: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    formattedPrice: PropTypes.string.isRequired,
+    reviewCount: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+  }).isRequired,
+};

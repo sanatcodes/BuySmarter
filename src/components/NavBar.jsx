@@ -42,7 +42,7 @@ const NavBar = () => {
         <Box mx={2}></Box>
         <Box mx={2}>
           <NavLink exact to="/marketplace" activeClassName="active">
-            MarketPlace
+            Marketplace
           </NavLink>
         </Box>
         <Box mx={2}>
