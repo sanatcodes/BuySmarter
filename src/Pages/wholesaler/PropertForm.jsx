@@ -152,7 +152,8 @@ export default function PropertyForm() {
           type="submit"
           mt="4"
           colorScheme="purple"
-          onClick={() => dispatch(setWholesalerStep(2))}
+          // lead to upload pictures page
+          onClick={() => dispatch(setWholesalerStep(3))}
         >
           Next Step
         </Button>

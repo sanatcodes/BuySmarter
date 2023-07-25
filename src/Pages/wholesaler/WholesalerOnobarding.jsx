@@ -1,8 +1,9 @@
-import { Text, useColorModeValue } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
 import Navbar from "../../components/NavBar";
 import PropertyForm from "./PropertForm";
+import UploadLegalDocs from "./UploadLegalDocs";
+import WholesalePictureUpload from "./WholesalePictureUpload";
 import WholeSalerIntroComponent from "./WholesalerIntroComponent";
 // import PropertyDetailsForm from "./PropertyDetailForm";
 // import Stepper from "./Stepper";
@@ -17,6 +18,9 @@ export default function WholesalerOnobarding() {
       <Navbar />
       {userStep === 1 && <WholeSalerIntroComponent />}
       {userStep === 2 && <PropertyForm />}
+      {userStep === 3 && <WholesalePictureUpload />}
+      {userStep === 4 && <UploadLegalDocs />}
+      {userStep === 5 && <WholesaleOnboardingSuccessful />}
     </>
   );
 }
