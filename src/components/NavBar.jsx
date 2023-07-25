@@ -6,13 +6,16 @@ import {
   IconButton,
   Image,
   CloseButton,
+  Button,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import darkLogo from "../assets/DarkModeLogo.png";
 import lightLogo from "../assets/LightModeLogo.png";
 import { NavLink } from "react-router-dom";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { auth, provider } from "../services/firebase";
 
 const NavBar = () => {
   const { toggleColorMode, colorMode } = useColorMode();
@@ -20,6 +23,26 @@ const NavBar = () => {
   const color = useColorModeValue("gray.700", "gray.200");
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      }
+    });
+  }, [user]);
+
+  const googlSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const user = result.user;
+        setUser(user);
+        // ...
+      })
+      .catch((error) => {});
+  };
 
   return (
     <Flex
@@ -49,6 +72,36 @@ const NavBar = () => {
           <NavLink to="/about" activeClassName="active">
             About
           </NavLink>
+        </Box>
+        <Box mx={2}>
+          {auth.currentUser === null ? (
+            <Button mx={2} colorScheme="purple" onClick={googlSignIn}>
+              Sign Up / Login
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                signOut(auth)
+                  .then(() => {
+                    // Sign-out successful
+                    setUser(null);
+                  })
+                  .catch((error) => {
+                    // An error happened.
+                  });
+              }}
+            >
+              <Image
+                borderRadius="full"
+                boxSize="20px"
+                src={auth.currentUser?.photoURL}
+                alt="Dan Abramov"
+                mr="2"
+              />
+              {console.log(auth.currentUser?.photoURL)}
+              {auth.currentUser?.displayName}
+            </Button>
+          )}
         </Box>
 
         <IconButton
