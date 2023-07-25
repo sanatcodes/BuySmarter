@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import darkLogo from "../assets/DarkModeLogo.png";
 import lightLogo from "../assets/LightModeLogo.png";
 import { NavLink } from "react-router-dom";
-import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "../services/firebase";
 
 const NavBar = () => {
@@ -41,7 +41,9 @@ const NavBar = () => {
         setUser(user);
         // ...
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -88,6 +90,7 @@ const NavBar = () => {
                   })
                   .catch((error) => {
                     // An error happened.
+                    console.log(error);
                   });
               }}
             >

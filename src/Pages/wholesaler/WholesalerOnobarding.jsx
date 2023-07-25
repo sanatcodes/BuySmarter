@@ -5,8 +5,7 @@ import PropertyForm from "./PropertForm";
 import UploadLegalDocs from "./UploadLegalDocs";
 import WholesalePictureUpload from "./WholesalePictureUpload";
 import WholeSalerIntroComponent from "./WholesalerIntroComponent";
-// import PropertyDetailsForm from "./PropertyDetailForm";
-// import Stepper from "./Stepper";
+import WholesaleOnboardingSuccessful from "./WholesaleOnboardingSuccessful";
 
 export default function WholesalerOnobarding() {
   // const [activeStep, setActiveStep] = useState(0);
