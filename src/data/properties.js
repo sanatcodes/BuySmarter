@@ -10,7 +10,8 @@ export const properties = [
     rating: 4,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://taylortripp.co.uk/wp-content/uploads/2020/05/manor-house-hampshire-landscape-garden-design-project-950x560.jpg",
     imageAlt: "Spacious country house with a garden",
     beds: 4,
     baths: 3,
@@ -20,7 +21,8 @@ export const properties = [
     rating: 4.5,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://img.freepik.com/premium-photo/luxury-penthouse-with-stunning-view-city-skyline-river_124507-105621.jpg",
     imageAlt: "Luxurious penthouse with a view of the city skyline",
     beds: 2,
     baths: 2,
@@ -30,7 +32,8 @@ export const properties = [
     rating: 4.8,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://a0.muscache.com/im/pictures/miso/Hosting-617949006716370711/original/d46f948e-68df-4ece-bee9-763b36978e24.jpeg?im_w=1200",
     imageAlt: "Charming cottage surrounded by nature",
     beds: 2,
     baths: 1,
@@ -40,7 +43,8 @@ export const properties = [
     rating: 4.2,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51081494/original/d7efa587-780a-47c9-8658-d48eb8e97aab.jpeg?im_w=1200",
     imageAlt: "Modern apartment in the bustling downtown area",
     beds: 1,
     baths: 1,
@@ -50,7 +54,8 @@ export const properties = [
     rating: 4.6,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://cdn.homedit.com/wp-content/uploads/2018/06/60-White-Street-by-Bostudio-Architecture-with-a-modern-rooftop-outdoor-area.jpg",
     imageAlt: "Stylish townhouse with a rooftop terrace",
     beds: 3,
     baths: 2,
@@ -60,7 +65,8 @@ export const properties = [
     rating: 4.3,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://images.trvl-media.com/lodging/35000000/34020000/34012800/34012781/cb29bea0.jpg?impolicy=resizecrop&rw=1200&ra=fit",
     imageAlt: "Spacious waterfront villa with a private dock",
     beds: 5,
     baths: 4,
@@ -70,7 +76,8 @@ export const properties = [
     rating: 4.9,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://media.architecturaldigest.com/photos/55e76789302ba71f301668be/16:9/w_2580,c_limit/dam-images-decor-2012-11-barn-style-houses-barn-farmhouse-03.jpg",
     imageAlt: "Rustic farmhouse with a large field",
     beds: 4,
     baths: 3,
@@ -80,7 +87,8 @@ export const properties = [
     rating: 4.7,
   },
   {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl:
+      "https://cdn.homedit.com/wp-content/uploads/2017/02/Industrial-Sao-Paulo-loft-loft-area.jpg",
     imageAlt: "Contemporary loft with an open floor plan",
     beds: 1,
     baths: 1,

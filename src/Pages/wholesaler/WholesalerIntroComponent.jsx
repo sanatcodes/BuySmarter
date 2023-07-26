@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import {
   Box,
   Button,
@@ -31,7 +31,7 @@ export default function WholesalerIntroComponent() {
           alignItems="center"
         >
           <Heading as="h1" fontSize={"4xl"} size="lg" color={color}>
-            It's easy to list on BuySmarter
+            It is easy to list on BuySmarter
           </Heading>
         </Box>
         {/* Right Side */}

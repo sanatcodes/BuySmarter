@@ -1,24 +1,28 @@
-import { SimpleGrid, Box, Center, Flex } from "@chakra-ui/react";
+import { SimpleGrid, Box, Center, Flex, Button } from "@chakra-ui/react";
 import NavBar from "../../components/NavBar";
 import PropertyCardComponent from "../../components/PropertyCardComponent";
 import SearchBar from "../../components/SearchBar";
-import Filter from "../../components/Filter";
+import Filter from "../../components/FilterPrimary";
 import { properties } from "../../data/properties";
+import PropertyDetailComponent from "./PropertyDetailComponent";
 
 export default function Marketplace() {
   return (
     <>
       <NavBar />
-      <Box p={4}>
-        <Flex>
-          <Box flex={1}>
-            <SearchBar />
-          </Box>
-          <Box>
-            <Filter />
-          </Box>
-        </Flex>
-        <Center>
+      <Center>
+        <Box p={4}>
+          <Flex alignItems="center" justifyContent="space-between" mb={4}>
+            <Box flex={1} mr={4}>
+              <SearchBar />
+            </Box>
+            <Flex gap={3}>
+              <Button>Price</Button>
+              <Button>Bed & Baths</Button>
+              <Button>Home Type</Button>
+              <Filter />
+            </Flex>
+          </Flex>
           <SimpleGrid columns={[2, null, 3]} spacing={20} mt={10}>
             {properties.map((p) => (
               <PropertyCardComponent
@@ -30,8 +34,8 @@ export default function Marketplace() {
               />
             ))}
           </SimpleGrid>
-        </Center>
-      </Box>
+        </Box>
+      </Center>
     </>
   );
 }

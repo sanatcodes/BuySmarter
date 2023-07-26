@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import {
   FaBed,
@@ -12,12 +10,15 @@ import { IoMdHome } from "react-icons/io";
 import { BiBuildingHouse } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
 import { AiOutlineFieldNumber } from "react-icons/ai";
-import { BsArrowLeftShort } from "react-icons/bs";
 import { propertyPropTypes } from "../../prop-types";
 import ImageGallery from "./ImageGallery";
 import { images } from "../../data/properties";
 
 const PropertyDetailComponent = ({ property }) => {
+  if (!property) {
+    return null; // or any other placeholder or loading state -- Perplexity
+  }
+
   return (
     <Flex>
       {/* Left Side: Property Images */}

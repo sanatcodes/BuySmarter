@@ -1,6 +1,5 @@
 import { StarIcon } from "@chakra-ui/icons";
 import { Badge, Box, Image } from "@chakra-ui/react";
-import PropTypes from "prop-types";
 import { PropertyCardPropTypes } from "../prop-types";
 
 export default function PropertyCardComponent({ property }) {
