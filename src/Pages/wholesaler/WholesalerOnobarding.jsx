@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 
 import Navbar from "../../components/NavBar";
-import PropertyForm from "./PropertForm";
+import PropertyForm from "./formComponents/GenralPropertyInfo";
 import UploadLegalDocs from "./UploadLegalDocs";
 import WholesalePictureUpload from "./WholesalePictureUpload";
 import WholeSalerIntroComponent from "./WholesalerIntroComponent";
 import WholesaleOnboardingSuccessful from "./WholesaleOnboardingSuccessful";
+import GenralPropertyInfo from "./formComponents/GenralPropertyInfo";
 
 export default function WholesalerOnobarding() {
   // const [activeStep, setActiveStep] = useState(0);
@@ -16,7 +17,7 @@ export default function WholesalerOnobarding() {
     <>
       <Navbar />
       {userStep === 1 && <WholeSalerIntroComponent />}
-      {userStep === 2 && <PropertyForm />}
+      {userStep === 2 && <GenralPropertyInfo />}
       {userStep === 3 && <WholesalePictureUpload />}
       {userStep === 4 && <UploadLegalDocs />}
       {userStep === 5 && <WholesaleOnboardingSuccessful />}
