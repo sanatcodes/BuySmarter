@@ -15,9 +15,9 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { setWholesalerStep } from "../../features/wholesaler/wholesaleSlice";
+import { setWholesalerStep } from "../../../features/wholesaler/wholesaleSlice";
 
-export default function PropertyForm() {
+export default function GenralPropertyInfo() {
   const color = useColorModeValue("gray.700", "gray.200");
   const dispatch = useDispatch();
   return (

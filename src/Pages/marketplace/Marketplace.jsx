@@ -4,6 +4,7 @@ import PropertyCardComponent from "../../components/PropertyCardComponent";
 import SearchBar from "../../components/SearchBar";
 import Filter from "../../components/Filter";
 import { properties } from "../../data/properties";
+import PropertyDetailComponent from "./PropertyDetailComponent";
 
 export default function Marketplace() {
   return (
