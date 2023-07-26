@@ -1,6 +1,7 @@
 import { StarIcon } from "@chakra-ui/icons";
 import { Badge, Box, Image } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import { PropertyCardPropTypes } from "../prop-types";
 
 export default function PropertyCardComponent({ property }) {
   return (
@@ -66,15 +67,4 @@ export default function PropertyCardComponent({ property }) {
   );
 }
 
-PropertyCardComponent.propTypes = {
-  property: PropTypes.shape({
-    imageUrl: PropTypes.string.isRequired,
-    imageAlt: PropTypes.string.isRequired,
-    beds: PropTypes.number.isRequired,
-    baths: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    formattedPrice: PropTypes.string.isRequired,
-    reviewCount: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-  }).isRequired,
-};
+PropertyCardComponent.propTypes = PropertyCardPropTypes;

@@ -6,9 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from "./app/store.js";
 import About from "./Pages/About.jsx";
 import Home from "./Pages/Home.jsx";
-import Marketplace from "./Pages/Marketplace.jsx";
+import Marketplace from "./Pages/marketplace/Marketplace.jsx";
 import WholesalerOnobarding from "./Pages/wholesaler/WholesalerOnobarding.jsx";
-// import WholesalerOnobarding from "./Pages/wholesaler/WholesalerOnobarding.jsx";
 
 const rootElement = document.getElementById("root");
 const router = createBrowserRouter([
