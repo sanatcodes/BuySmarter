@@ -9,8 +9,12 @@ import {
   Button,
   Avatar,
   Text,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  Menu,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import darkLogo from "../assets/DarkModeLogo.png";
@@ -83,22 +87,44 @@ const NavBar = () => {
               Sign Up / Login
             </Button>
           ) : (
-            <Button
-              onClick={() => {
-                signOut(auth)
-                  .then(() => {
-                    // Sign-out successful
-                    setUser(null);
-                  })
-                  .catch((error) => {
-                    // An error happened.
-                    console.log(error);
-                  });
-              }}
-              leftIcon={<Avatar src={auth.currentUser?.photoURL} size={"xs"} />}
-            >
-              {auth.currentUser?.displayName}
-            </Button>
+            <Menu>
+              <MenuButton
+                as={Button}
+                rightIcon={<ChevronDownIcon />}
+                leftIcon={
+                  <Avatar src={auth.currentUser?.photoURL} size={"xs"} />
+                }
+              >
+                {auth.currentUser?.displayName}
+              </MenuButton>
+              <MenuList>
+                <MenuItem
+                  onClick={() => {
+                    signOut(auth)
+                      .then(() => {
+                        // Sign-out successful
+                        setUser(null);
+                      })
+                      .catch((error) => {
+                        // An error happened.
+                        console.log(error);
+                      });
+                  }}
+                >
+                  Sign Out
+                </MenuItem>
+                <MenuItem>
+                  <NavLink
+                    exact
+                    to="/wholesaleDashboard"
+                    activeClassName="active"
+                  >
+                    Wholesaler Dashboard
+                  </NavLink>
+                </MenuItem>
+                {/* Add additional menu items here */}
+              </MenuList>
+            </Menu>
           )}
         </Box>
 
