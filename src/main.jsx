@@ -8,6 +8,7 @@ import About from "./Pages/About.jsx";
 import Home from "./Pages/Home.jsx";
 import Marketplace from "./Pages/marketplace/Marketplace.jsx";
 import WholesalerOnobarding from "./Pages/wholesaler/WholesalerOnobarding.jsx";
+import Dashboard from "./Pages/wholesalerDashboard/Dashboard.jsx";
 
 const rootElement = document.getElementById("root");
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/wholesale",
     element: <WholesalerOnobarding />,
+  },
+  {
+    path: "/wholesaleDashboard",
+    element: <Dashboard />,
   },
 ]);
 
