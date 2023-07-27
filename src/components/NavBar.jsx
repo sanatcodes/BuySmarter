@@ -60,25 +60,20 @@ const NavBar = () => {
       alignItems="center"
     >
       <Box>
-        <NavLink to="/">
+        <a href="https://www.buysmarter.io">
           <Image
             w={{ base: "120px", md: "150px" }}
             src={colorMode === "dark" ? darkLogo : lightLogo}
             objectFit={"contain"}
             alt=" Logo"
           />
-        </NavLink>
+        </a>
       </Box>
       <Box ml="auto" display={{ base: "none", md: "flex" }} alignItems="center">
         <Box mx={2}></Box>
         <Box mx={2}>
           <NavLink exact to="/marketplace" activeClassName="active">
             Marketplace
-          </NavLink>
-        </Box>
-        <Box mx={2}>
-          <NavLink to="/about" activeClassName="active">
-            About
           </NavLink>
         </Box>
         <Box mx={2}>
@@ -98,6 +93,20 @@ const NavBar = () => {
                 {auth.currentUser?.displayName}
               </MenuButton>
               <MenuList>
+                <MenuItem>
+                  <NavLink
+                    exact
+                    to="/wholesaleDashboard"
+                    activeClassName="active"
+                  >
+                    Wholesaler Dashboard
+                  </NavLink>
+                </MenuItem>
+                <MenuItem>
+                  <NavLink exact to="/referrals" activeClassName="active">
+                    Referrals Page
+                  </NavLink>
+                </MenuItem>
                 <MenuItem
                   onClick={() => {
                     signOut(auth)
@@ -113,16 +122,6 @@ const NavBar = () => {
                 >
                   Sign Out
                 </MenuItem>
-                <MenuItem>
-                  <NavLink
-                    exact
-                    to="/wholesaleDashboard"
-                    activeClassName="active"
-                  >
-                    Wholesaler Dashboard
-                  </NavLink>
-                </MenuItem>
-                {/* Add additional menu items here */}
               </MenuList>
             </Menu>
           )}
@@ -186,14 +185,57 @@ const NavBar = () => {
           </NavLink>
         </Box>
         <Box mx={2} my={2}>
-          <NavLink
-            exact
-            to="/"
-            activeClassName="active"
-            onClick={() => setShow(false)}
-          >
+          {auth.currentUser === null ? (
+            <Button mx={2} colorScheme="purple" onClick={googlSignIn}>
+              Sign Up / Login
+            </Button>
+          ) : (
+            <Menu>
+              <MenuButton
+                as={Button}
+                rightIcon={<ChevronDownIcon />}
+                leftIcon={
+                  <Avatar src={auth.currentUser?.photoURL} size={"xs"} />
+                }
+              >
+                {auth.currentUser?.displayName}
+              </MenuButton>
+              <MenuList>
+                <MenuItem>
+                  <NavLink
+                    exact
+                    to="/wholesaleDashboard"
+                    activeClassName="active"
+                  >
+                    Wholesaler Dashboard
+                  </NavLink>
+                </MenuItem>
+                <MenuItem>
+                  <NavLink exact to="/referrals" activeClassName="active">
+                    Referrals Page
+                  </NavLink>
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    signOut(auth)
+                      .then(() => {
+                        // Sign-out successful
+                        setUser(null);
+                      })
+                      .catch((error) => {
+                        // An error happened.
+                        console.log(error);
+                      });
+                  }}
+                >
+                  Sign Out
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          )}
+          <a href="https://www.buysmarter.io" onClick={() => setShow(false)}>
             Home
-          </NavLink>
+          </a>
         </Box>
         <Box mx={2} my={2}>
           <NavLink
@@ -203,16 +245,6 @@ const NavBar = () => {
             onClick={() => setShow(false)}
           >
             Marketplace
-          </NavLink>
-        </Box>
-        <Box mx={2} my={2}>
-          <NavLink
-            exact
-            to="/about"
-            activeClassName="active"
-            onClick={() => setShow(false)}
-          >
-            About
           </NavLink>
         </Box>
       </Box>
