@@ -11,8 +11,11 @@ import {
   Button,
   Heading,
 } from "@chakra-ui/react";
+import { setWholesalerStep } from "../../../features/wholesaler/wholesaleSlice";
+import { useDispatch } from "react-redux";
 
 const IncomeForm = () => {
+  const dispatch = useDispatch();
   return (
     <Box>
       <Heading
@@ -87,8 +90,14 @@ const IncomeForm = () => {
             </NumberInput>
           </FormControl>
 
-          <Button mt={4} colorScheme="teal" type="submit">
-            Submit
+          <Button
+            type="submit"
+            mt="4"
+            colorScheme="purple"
+            // lead to upload pictures page
+            onClick={() => dispatch(setWholesalerStep(6))}
+          >
+            Next Step
           </Button>
         </form>
       </Box>

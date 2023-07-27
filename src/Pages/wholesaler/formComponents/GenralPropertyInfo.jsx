@@ -17,7 +17,7 @@ import {
 import { useDispatch } from "react-redux";
 import { setWholesalerStep } from "../../../features/wholesaler/wholesaleSlice";
 
-export default function GenralPropertyInfo() {
+export default function PropertyForm() {
   const color = useColorModeValue("gray.700", "gray.200");
   const dispatch = useDispatch();
   return (
@@ -153,7 +153,7 @@ export default function GenralPropertyInfo() {
             mt="4"
             colorScheme="purple"
             // lead to upload pictures page
-            onClick={() => dispatch(setWholesalerStep(3))}
+            onClick={() => dispatch(setWholesalerStep(4))}
           >
             Next Step
           </Button>
