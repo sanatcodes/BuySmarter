@@ -1,10 +1,20 @@
-import { Flex, Stack, Text } from "@chakra-ui/react";
+import {
+  Flex,
+  Stack,
+  Text,
+  Stat,
+  StatLabel,
+  StatNumber,
+} from "@chakra-ui/react";
 import { FaBath, FaBed } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import { IoMdHome } from "react-icons/io";
 
 export const PropertyDetails = ({ property }) => (
   <Stack spacing={3}>
+    <Stat>
+      <StatNumber>{property.formattedPrice}</StatNumber>
+    </Stat>
     <Flex alignItems="center">
       <IoMdHome size={24} />
       <Text ml={2}>{property.title}</Text>

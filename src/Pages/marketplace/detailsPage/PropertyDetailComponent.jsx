@@ -13,6 +13,7 @@ import {
   TabPanels,
 } from "@chakra-ui/react";
 import { FaLock } from "react-icons/fa";
+import { IoMdHome } from "react-icons/io";
 import { propertyPropTypes } from "../../../prop-types";
 import { FinancialInformation } from "./FinancialInformation";
 import ImageGallery from "./ImageGallery";
@@ -35,7 +36,10 @@ const PropertyDetailComponent = ({ property }) => {
         <Box flex="1" p={5}>
           <Tabs isFitted variant="enclosed">
             <TabList mb="1em">
-              <Tab>Property Details</Tab>
+              <Tab>
+                <IoMdHome size={22} style={{ marginRight: "8px" }} />
+                Property Details
+              </Tab>
               <Tab>
                 <FaLock size={18} style={{ marginRight: "8px" }} />
                 Financial Information
