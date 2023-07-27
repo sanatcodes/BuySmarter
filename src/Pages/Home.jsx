@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <NavBar />
       <h1>Home</h1>
-      <PropertyDetailComponent property={dummyProperty} />;
+      {/* <PropertyDetailComponent property={dummyProperty} />; */}
     </>
   );
 }

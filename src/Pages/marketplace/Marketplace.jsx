@@ -1,12 +1,31 @@
-import { SimpleGrid, Box, Center, Flex, Button } from "@chakra-ui/react";
+import { SimpleGrid, Box, Center, Flex, Button, Text } from "@chakra-ui/react";
+import { useState } from "react";
 import NavBar from "../../components/NavBar";
 import PropertyCardComponent from "../../components/PropertyCardComponent";
 import SearchBar from "../../components/SearchBar";
 import Filter from "../../components/FilterPrimary";
-import { properties } from "../../data/properties";
 import PropertyDetailComponent from "./PropertyDetailComponent";
+import GoogleMapComponent from "../../components/GoogleMapsComponent";
+import { properties } from "../../data/properties"; // Replace with the path to your data generation file
 
 export default function Marketplace() {
+  const [selectedProperty, setSelectedProperty] = useState(null);
+
+  if (selectedProperty) {
+    return (
+      <>
+        <NavBar />
+        <Center>
+          <Box p={4} bg="red.300">
+            <Text>{selectedProperty.title}</Text>
+            <PropertyDetailComponent property={selectedProperty} />
+            <Button onClick={() => setSelectedProperty(null)}>Go Back</Button>
+          </Box>
+        </Center>
+      </>
+    );
+  }
+
   return (
     <>
       <NavBar />
@@ -23,17 +42,28 @@ export default function Marketplace() {
               <Filter />
             </Flex>
           </Flex>
-          <SimpleGrid columns={[2, null, 3]} spacing={20} mt={10}>
-            {properties.map((p) => (
-              <PropertyCardComponent
-                key={p.title}
-                property={p}
-                onClick={() => {
-                  <PropertyDetailComponent />;
-                }}
-              />
-            ))}
-          </SimpleGrid>
+          <Flex direction={["column", "row"]} mt={10} h="80vh">
+            <Box
+              flex="1"
+              mr={2}
+              bg="gray.200"
+              sx={{ "&::-webkit-scrollbar": { display: "none" } }}
+            >
+              <GoogleMapComponent />
+            </Box>
+            <Box flex="1" ml={2} overflowY="auto">
+              <SimpleGrid columns={[1, 1, 2]} spacing={20}>
+                {properties.map((p) => (
+                  <PropertyCardComponent
+                    key={p.title}
+                    property={p}
+                    onClick={() => setSelectedProperty(p)}
+                    style={{ cursor: "pointer" }}
+                  />
+                ))}
+              </SimpleGrid>
+            </Box>
+          </Flex>
         </Box>
       </Center>
     </>

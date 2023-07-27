@@ -16,17 +16,15 @@ import { images } from "../../data/properties";
 
 const PropertyDetailComponent = ({ property }) => {
   if (!property) {
-    return null; // or any other placeholder or loading state -- Perplexity
+    return null;
   }
 
   return (
     <Flex>
       {/* Left Side: Property Images */}
-
       <Box flex="1">
         <Heading as="h2">Property Images</Heading>
-
-        <ImageGallery images={images} />
+        <ImageGallery images={property.imageUrl} />
       </Box>
 
       {/* Right Side: Property Details */}
@@ -35,48 +33,24 @@ const PropertyDetailComponent = ({ property }) => {
           {/* First row of Property Details */}
           <Box flex="1">
             <Heading as="h2">Property Details</Heading>
-
             <Flex alignItems="center">
               <IoMdHome size={32} />
-              <Text ml="10px">{property.propertyName}</Text>
+              <Text ml="10px">{property.title}</Text>
             </Flex>
 
             <Flex alignItems="center">
               <GoLocation size={32} />
-              <Text ml="10px">
-                {property.address}, {property.city}, {property.state}{" "}
-                {property.zipCode}
-              </Text>
-            </Flex>
-
-            <Flex alignItems="center">
-              <BiBuildingHouse size={32} />
-              <Text ml="10px">Property Type: {property.propertyType}</Text>
-            </Flex>
-
-            <Flex alignItems="center">
-              <AiOutlineFieldNumber size={32} />
-              <Text ml="10px">Year Built: {property.yearBuilt}</Text>
-            </Flex>
-
-            <Flex alignItems="center">
-              <FaRulerCombined size={32} />
-              <Text ml="10px">Square Footage: {property.squareFootage}</Text>
+              <Text ml="10px">{property.address}</Text>
             </Flex>
 
             <Flex alignItems="center">
               <FaBed size={32} />
-              <Text ml="10px">Bedrooms: {property.numBedrooms}</Text>
+              <Text ml="10px">Beds: {property.beds}</Text>
             </Flex>
 
             <Flex alignItems="center">
               <FaBath size={32} />
-              <Text ml="10px">Bathrooms: {property.numBathrooms}</Text>
-            </Flex>
-
-            <Flex alignItems="center">
-              <FaCar size={32} />
-              <Text ml="10px">Parking: {property.parking}</Text>
+              <Text ml="10px">Baths: {property.baths}</Text>
             </Flex>
           </Box>
 
@@ -86,31 +60,32 @@ const PropertyDetailComponent = ({ property }) => {
 
             <Flex alignItems="center">
               <FaDollarSign size={32} />
-              <Text ml="10px">Asking Price: {property.askingPrice}</Text>
+              <Text ml="10px">Offer Price: {property.offerPrice}</Text>
             </Flex>
 
             <Flex alignItems="center">
               <FaDollarSign size={32} />
               <Text ml="10px">
-                Estimated Market Value: {property.estimatedMarketValue}
+                Estimated Market Value: {property.fairMarketValue}
               </Text>
             </Flex>
 
             <Flex alignItems="center">
               <FaDollarSign size={32} />
               <Text ml="10px">
-                Estimated Repair Cost: {property.estimatedRepairCost}
+                Real Purchase Price: {property.realPurchasePrice}
               </Text>
             </Flex>
 
             <Flex alignItems="center">
               <FaDollarSign size={32} />
               <Text ml="10px">
-                Potential Rental Income: {property.potentialRentalIncome}
+                Cash Required to Close: {property.cashRequiredToClose}
               </Text>
             </Flex>
           </Box>
         </Flex>
+
         <Flex p="20px" gap={10} justifyContent="center">
           <Button>Contact Now</Button>
           <Button>Get verified to buy quickly</Button>

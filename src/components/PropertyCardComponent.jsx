@@ -2,7 +2,7 @@ import { StarIcon } from "@chakra-ui/icons";
 import { Badge, Box, Image } from "@chakra-ui/react";
 import { PropertyCardPropTypes } from "../prop-types";
 
-export default function PropertyCardComponent({ property }) {
+export default function PropertyCardComponent({ property, onClick }) {
   return (
     <Box
       maxW="sm"
@@ -11,8 +11,10 @@ export default function PropertyCardComponent({ property }) {
       overflow="hidden"
       p={4}
       mb={4}
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
     >
-      <Image src={property.imageUrl} alt={property.imageAlt} />
+      <Image src={property.imageUrl[0]} alt={property.imageAlt} />
 
       <Box mt={2}>
         <Box display="flex" alignItems="baseline">
