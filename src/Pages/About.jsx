@@ -14,12 +14,12 @@ export default function About() {
     <>
       <NavBar />
       <Flex gap={20} direction="column" w="80vw">
-        <GenralPropertyInfo />
+        {/* <GenralPropertyInfo />
         <PropertyForm />
         <FinancingForm />
         <IncomeForm />
         <ExpensesForm />
-        <CashToCloseForm />
+        <CashToCloseForm /> */}
       </Flex>
     </>
   );

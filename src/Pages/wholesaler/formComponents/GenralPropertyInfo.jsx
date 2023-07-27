@@ -147,16 +147,17 @@ export default function GenralPropertyInfo() {
               <NumberInputField />
             </NumberInput>
           </FormControl>
+
+          <Button
+            type="submit"
+            mt="4"
+            colorScheme="purple"
+            // lead to upload pictures page
+            onClick={() => dispatch(setWholesalerStep(3))}
+          >
+            Next Step
+          </Button>
         </form>
-        <Button
-          type="submit"
-          mt="4"
-          colorScheme="purple"
-          // lead to upload pictures page
-          onClick={() => dispatch(setWholesalerStep(3))}
-        >
-          Next Step
-        </Button>
       </Box>
     </Box>
   );
