@@ -1,10 +1,21 @@
-import { SimpleGrid, Box, Center, Flex, Button, Text } from "@chakra-ui/react";
+import {
+  SimpleGrid,
+  Box,
+  Center,
+  Flex,
+  Button,
+  Text,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
 import { useMemo, useState } from "react";
 import NavBar from "../../components/NavBar";
 import PropertyCardComponent from "../../components/PropertyCardComponent";
 import SearchBar from "../../components/SearchBar";
 import Filter from "../../components/FilterPrimary";
-import PropertyDetailComponent from "./PropertyDetailComponent";
+import PropertyDetailComponent from "./detailsPage/PropertyDetailComponent";
 import GoogleMapComponent from "../../components/GoogleMapsComponent";
 import { properties } from "../../data/properties"; // Replace with the path to your data generation file
 
@@ -28,10 +39,9 @@ export default function Marketplace() {
       <>
         <NavBar />
         <Center>
-          <Box p={4} bg="red.300">
-            <Text>{selectedProperty.title}</Text>
-            <PropertyDetailComponent property={selectedProperty} />
+          <Box p={4}>
             <Button onClick={() => setSelectedProperty(null)}>Go Back</Button>
+            <PropertyDetailComponent property={selectedProperty} />
           </Box>
         </Center>
       </>
@@ -48,9 +58,32 @@ export default function Marketplace() {
               <SearchBar onChange={(e) => setSearch(e.target.value)} />
             </Box>
             <Flex gap={3}>
-              <Button>Price</Button>
-              <Button>Bed & Baths</Button>
-              <Button>Home Type</Button>
+              <Menu>
+                <MenuButton as={Button}>Price</MenuButton>
+                <MenuList>
+                  <MenuItem>Low-High</MenuItem>
+                  <MenuItem>High-Low</MenuItem>
+                </MenuList>
+              </Menu>
+
+              <Menu>
+                <MenuButton as={Button}>Bed & Baths</MenuButton>
+                <MenuList>
+                  <MenuItem>1</MenuItem>
+                  <MenuItem>3-5</MenuItem>
+                  <MenuItem>5+</MenuItem>
+                </MenuList>
+              </Menu>
+
+              <Menu>
+                <MenuButton as={Button}>Home Type</MenuButton>
+                <MenuList>
+                  <MenuItem>Houses</MenuItem>
+                  <MenuItem>Multi Family </MenuItem>
+                  <MenuItem>Apartment</MenuItem>
+                </MenuList>
+              </Menu>
+
               <Filter />
             </Flex>
           </Flex>
