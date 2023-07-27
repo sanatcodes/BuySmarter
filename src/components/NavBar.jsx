@@ -7,6 +7,8 @@ import {
   Image,
   CloseButton,
   Button,
+  Avatar,
+  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
@@ -93,15 +95,8 @@ const NavBar = () => {
                     console.log(error);
                   });
               }}
+              leftIcon={<Avatar src={auth.currentUser?.photoURL} size={"xs"} />}
             >
-              <Image
-                borderRadius="full"
-                boxSize="20px"
-                src={auth.currentUser?.photoURL}
-                alt="Dan Abramov"
-                mr="2"
-              />
-              {console.log(auth.currentUser?.photoURL)}
               {auth.currentUser?.displayName}
             </Button>
           )}
