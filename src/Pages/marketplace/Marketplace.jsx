@@ -1,5 +1,5 @@
 import { SimpleGrid, Box, Center, Flex, Button, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import NavBar from "../../components/NavBar";
 import PropertyCardComponent from "../../components/PropertyCardComponent";
 import SearchBar from "../../components/SearchBar";
@@ -10,6 +10,18 @@ import { properties } from "../../data/properties"; // Replace with the path to 
 
 export default function Marketplace() {
   const [selectedProperty, setSelectedProperty] = useState(null);
+  const [search, setSearch] = useState("");
+
+  // This will recalculate the filtered properties only when the search query or properties array changes
+  const filteredProperties = useMemo(() => {
+    if (search === "") {
+      return properties;
+    } else {
+      return properties.filter((property) =>
+        property.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+  }, [search, properties]);
 
   if (selectedProperty) {
     return (
@@ -33,7 +45,7 @@ export default function Marketplace() {
         <Box p={4}>
           <Flex alignItems="center" justifyContent="space-between" mb={4}>
             <Box flex={1} mr={4}>
-              <SearchBar />
+              <SearchBar onChange={(e) => setSearch(e.target.value)} />
             </Box>
             <Flex gap={3}>
               <Button>Price</Button>
@@ -53,7 +65,7 @@ export default function Marketplace() {
             </Box>
             <Box flex="1" ml={2} overflowY="auto">
               <SimpleGrid columns={[1, 1, 2]} spacing={20}>
-                {properties.map((p) => (
+                {filteredProperties.map((p) => (
                   <PropertyCardComponent
                     key={p.title}
                     property={p}
