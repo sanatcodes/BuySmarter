@@ -8,17 +8,27 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  useDisclosure,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { useMemo, useState } from "react";
 import NavBar from "../../components/NavBar";
 import PropertyCardComponent from "../../components/PropertyCardComponent";
 import SearchBar from "../../components/SearchBar";
-import Filter from "../../components/FilterPrimary";
 import PropertyDetailComponent from "./detailsPage/PropertyDetailComponent";
 import GoogleMapComponent from "../../components/GoogleMapsComponent";
 import { properties } from "../../data/properties"; // Replace with the path to your data generation file
 
 export default function Marketplace() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [search, setSearch] = useState("");
 
@@ -56,46 +66,108 @@ export default function Marketplace() {
             <Box flex={1} mr={4}>
               <SearchBar onChange={(e) => setSearch(e.target.value)} />
             </Box>
-            <Flex gap={3}>
-              <Menu>
-                <MenuButton as={Button}>Price</MenuButton>
-                <MenuList>
-                  <MenuItem>Low-High</MenuItem>
-                  <MenuItem>High-Low</MenuItem>
-                </MenuList>
-              </Menu>
+            {isLargerThan768 ? (
+              <Flex>
+                <Menu>
+                  <MenuButton as={Button} mr={3}>
+                    Price
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>Low-High</MenuItem>
+                    <MenuItem>High-Low</MenuItem>
+                  </MenuList>
+                </Menu>
 
-              <Menu>
-                <MenuButton as={Button}>Bed & Baths</MenuButton>
-                <MenuList>
-                  <MenuItem>1</MenuItem>
-                  <MenuItem>3-5</MenuItem>
-                  <MenuItem>5+</MenuItem>
-                </MenuList>
-              </Menu>
+                <Menu>
+                  <MenuButton as={Button} mr={3}>
+                    Bed & Baths
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>1</MenuItem>
+                    <MenuItem>3-5</MenuItem>
+                    <MenuItem>5+</MenuItem>
+                  </MenuList>
+                </Menu>
 
-              <Menu>
-                <MenuButton as={Button}>Home Type</MenuButton>
-                <MenuList>
-                  <MenuItem>Houses</MenuItem>
-                  <MenuItem>Multi Family </MenuItem>
-                  <MenuItem>Apartment</MenuItem>
-                </MenuList>
-              </Menu>
+                <Menu>
+                  <MenuButton as={Button} mr={3}>
+                    Home Type
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>Houses</MenuItem>
+                    <MenuItem>Multi Family </MenuItem>
+                    <MenuItem>Apartment</MenuItem>
+                  </MenuList>
+                </Menu>
+              </Flex>
+            ) : (
+              <Button onClick={onOpen}>Filters</Button>
+            )}
 
-              <Filter />
-            </Flex>
+            <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+              <DrawerOverlay>
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader>Filters</DrawerHeader>
+
+                  <DrawerBody>
+                    <Menu>
+                      <MenuButton as={Button} w="100%" mb={3}>
+                        Price
+                      </MenuButton>
+                      <MenuList>
+                        <MenuItem>Low-High</MenuItem>
+                        <MenuItem>High-Low</MenuItem>
+                      </MenuList>
+                    </Menu>
+
+                    <Menu>
+                      <MenuButton as={Button} w="100%" mb={3}>
+                        Bed & Baths
+                      </MenuButton>
+                      <MenuList>
+                        <MenuItem>1</MenuItem>
+                        <MenuItem>3-5</MenuItem>
+                        <MenuItem>5+</MenuItem>
+                      </MenuList>
+                    </Menu>
+
+                    <Menu>
+                      <MenuButton as={Button} w="100%" mb={3}>
+                        Home Type
+                      </MenuButton>
+                      <MenuList>
+                        <MenuItem>Houses</MenuItem>
+                        <MenuItem>Multi Family </MenuItem>
+                        <MenuItem>Apartment</MenuItem>
+                      </MenuList>
+                    </Menu>
+                  </DrawerBody>
+                </DrawerContent>
+              </DrawerOverlay>
+            </Drawer>
           </Flex>
           <Flex direction={["column", "row"]} mt={10} h="80vh">
+            {isLargerThan768 && (
+              <Box
+                flex="1"
+                mr={2}
+                bg="gray.200"
+                sx={{ "&::-webkit-scrollbar": { display: "none" } }}
+              >
+                <GoogleMapComponent />
+              </Box>
+            )}
             <Box
               flex="1"
-              mr={2}
-              bg="gray.200"
-              sx={{ "&::-webkit-scrollbar": { display: "none" } }}
+              ml={2}
+              overflowY="auto"
+              sx={{
+                "&::-webkit-scrollbar": { display: "none" },
+                "-ms-overflow-style": "none",
+                scrollbarWidth: "none",
+              }}
             >
-              <GoogleMapComponent />
-            </Box>
-            <Box flex="1" ml={2} overflowY="auto">
               <SimpleGrid columns={[1, 1, 2]} spacing={20}>
                 {filteredProperties.map((p) => (
                   <PropertyCardComponent

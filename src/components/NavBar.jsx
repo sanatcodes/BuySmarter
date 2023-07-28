@@ -25,7 +25,7 @@ import { auth, provider } from "../services/firebase";
 
 const NavBar = () => {
   const { toggleColorMode, colorMode } = useColorMode();
-  const bgColor = useColorModeValue("purple.200", "gray.700");
+  const bgColor = useColorModeValue("gray.200", "gray.700");
   const color = useColorModeValue("gray.700", "gray.200");
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
@@ -227,20 +227,8 @@ const NavBar = () => {
               </MenuList>
             </Menu>
           )}
-          <a href="https://www.buysmarter.io" onClick={() => setShow(false)}>
-            Home
-          </a>
         </Box>
-        <Box mx={2} my={2}>
-          <NavLink
-            exact
-            to="/marketplace"
-            activeClassName="active"
-            onClick={() => setShow(false)}
-          >
-            Marketplace
-          </NavLink>
-        </Box>
+        <Box mx={2} my={2}></Box>
       </Box>
     </Flex>
   );

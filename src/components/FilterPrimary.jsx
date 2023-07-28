@@ -69,7 +69,7 @@ export default function Filter() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Filte</ModalHeader>
+          <ModalHeader>Filter</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Stack spacing={6}>
