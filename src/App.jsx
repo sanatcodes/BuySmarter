@@ -2,7 +2,6 @@ import { ChakraProvider, theme } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import About from "./Pages/About";
-import Home from "./Pages/Home";
 import Marketplace from "./Pages/marketplace/Marketplace";
 import Footer from "./components/Footer";
 
@@ -12,9 +11,8 @@ function App() {
       <ChakraProvider theme={theme}>
         <NavBar />
         <Routes>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Marketplace} />
           <Route path="/about" component={About} />
-          <Route path="/marketplace" component={Marketplace} />
         </Routes>
         <Footer />
       </ChakraProvider>

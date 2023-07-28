@@ -60,22 +60,16 @@ const NavBar = () => {
       alignItems="center"
     >
       <Box>
-        <a href="https://www.buysmarter.io">
+        <NavLink to="/">
           <Image
             w={{ base: "120px", md: "150px" }}
             src={colorMode === "dark" ? darkLogo : lightLogo}
             objectFit={"contain"}
             alt=" Logo"
           />
-        </a>
+        </NavLink>
       </Box>
       <Box ml="auto" display={{ base: "none", md: "flex" }} alignItems="center">
-        <Box mx={2}></Box>
-        <Box mx={2}>
-          <NavLink exact to="/marketplace" activeClassName="active">
-            Marketplace
-          </NavLink>
-        </Box>
         <Box mx={2}>
           {auth.currentUser === null ? (
             <Button mx={2} colorScheme="purple" onClick={googlSignIn}>
