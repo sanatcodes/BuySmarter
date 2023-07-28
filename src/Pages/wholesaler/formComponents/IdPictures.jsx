@@ -10,9 +10,9 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { setWholesalerStep } from "../../features/wholesaler/wholesaleSlice";
+import { setWholesalerStep } from "../../../features/wholesaler/wholesaleSlice";
 
-export default function WholesalePictureUpload() {
+export default function IdPictureUpload() {
   const dispatch = useDispatch();
   const [files, setFiles] = useState([]);
 
@@ -26,12 +26,12 @@ export default function WholesalePictureUpload() {
     //Here you can handle the files (EX: upload them to server)
     console.log(files);
 
-    dispatch(setWholesalerStep(9));
+    dispatch(setWholesalerStep(10));
   };
 
   return (
     <Flex direction="column" justify="center" align="center" h="100vh">
-      <Heading mb={10}>Upload property pictures: </Heading>
+      <Heading mb={10}>Upload ID pictures:</Heading>
       <Box as="label">
         <Input
           type="file"

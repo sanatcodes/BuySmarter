@@ -11,6 +11,7 @@ import CashToCloseForm from "./formComponents/CashToCloseForm";
 import WholesaleOnboardingSuccessful from "./WholesaleOnboardingSuccessful";
 import WholesalePictureUpload from "./WholesalePictureUpload";
 import StepBar from "./formComponents/StepBar";
+import IdPictureUpload from "./formComponents/IdPictures";
 
 export default function WholesalerOnobarding() {
   const userStep = useSelector((state) => state.wholesaler.wholesalerStep);
@@ -26,7 +27,8 @@ export default function WholesalerOnobarding() {
       {userStep === 6 && <ExpensesForm />}
       {userStep === 7 && <CashToCloseForm />}
       {userStep === 8 && <WholesalePictureUpload />}
-      {userStep === 9 && <WholesaleOnboardingSuccessful />}
+      {userStep === 9 && <IdPictureUpload />}
+      {userStep === 10 && <WholesaleOnboardingSuccessful />}
     </>
   );
 }

@@ -18,7 +18,8 @@ const steps = [
   { title: "Step 4", description: "Income Information" },
   { title: "Step 5", description: "Operating Information" },
   { title: "Step 6", description: "Cash to Close" },
-  { title: "Step 7", description: "Pictures" },
+  { title: "Step 7", description: "Property Pictures" },
+  { title: "Step 8", description: "ID Pictures" },
   { title: "Done!", description: "Click 'Return to Dashboard'" },
 ];
 

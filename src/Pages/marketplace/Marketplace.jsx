@@ -4,7 +4,6 @@ import {
   Center,
   Flex,
   Button,
-  Text,
   Menu,
   MenuButton,
   MenuList,

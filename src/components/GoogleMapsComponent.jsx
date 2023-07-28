@@ -1,6 +1,7 @@
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { useMemo } from "react";
 import "../css/index.css";
+import { Box } from "@chakra-ui/react";
 
 export default function GoogleMapComponent() {
   const { isLoaded } = useLoadScript({
@@ -11,7 +12,7 @@ export default function GoogleMapComponent() {
 
   return (
     <>
-      <div className="App">
+      <Box className="App" w="100vh" h="100vh">
         {!isLoaded ? (
           <h1>Loading...</h1>
         ) : (
@@ -26,7 +27,7 @@ export default function GoogleMapComponent() {
             />
           </GoogleMap>
         )}
-      </div>
+      </Box>
     </>
   );
 }
