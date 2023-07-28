@@ -1,8 +1,16 @@
 import { faker } from "@faker-js/faker";
 
+export const images = [
+  "https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+  "https://media.istockphoto.com/id/1442689877/photo/outdoor-view-of-the-modern-house-against-autumnal-trees.webp?b=1&s=170667a&w=0&k=20&c=gCPrSrWxV_YRlVuHbI_Z9goEPOg_SONRqjcOLDIQ3UA=",
+  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+  "https://images.unsplash.com/photo-1627141234469-24711efb373c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhvdXNlJTIwZXh0ZXJpb3J8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+];
+let imageIndex = 0;
 function createProperty() {
   return {
     imageUrl: [
+      images[imageIndex++ % images.length],
       faker.image.url(),
       faker.image.url(),
       faker.image.url(),
@@ -102,7 +110,7 @@ function createProperty() {
 export function generateProperties() {
   let properties_fake = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 4; i++) {
     properties_fake.push(createProperty());
   }
 
@@ -349,10 +357,3 @@ export const dummyProperty = {
   estimatedRepairCost: 5000,
   potentialRentalIncome: 1500,
 };
-
-export const images = [
-  "https://via.placeholder.com/150/FF0000/FFFFFF?text=1",
-  "https://via.placeholder.com/150/00FF00/000000?text=2",
-  "https://via.placeholder.com/150/0000FF/FFFFFF?text=3",
-  "https://via.placeholder.com/150/FFFF00/000000?text=4",
-];
