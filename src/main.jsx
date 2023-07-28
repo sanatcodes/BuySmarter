@@ -5,8 +5,8 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from "./app/store.js";
 import About from "./Pages/About.jsx";
-import Home from "./Pages/Home.jsx";
 import Marketplace from "./Pages/marketplace/Marketplace.jsx";
+import ReferralsPage from "./Pages/referrals/ReferralsPage.jsx";
 import WholesalerOnobarding from "./Pages/wholesaler/WholesalerOnobarding.jsx";
 import Dashboard from "./Pages/wholesalerDashboard/Dashboard.jsx";
 
@@ -14,10 +14,6 @@ const rootElement = document.getElementById("root");
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/marketplace",
     element: <Marketplace />,
   },
   {
@@ -31,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/wholesaleDashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/referrals",
+    element: <ReferralsPage />,
   },
 ]);
 

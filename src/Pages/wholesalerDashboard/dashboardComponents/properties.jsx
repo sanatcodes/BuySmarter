@@ -1,45 +1,44 @@
-import PropTypes from "prop-types";
-import { Box, Image, Text, VStack } from "@chakra-ui/react";
+import { StarIcon } from "@chakra-ui/icons";
+import { Badge, Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
-export default function Properties({ imgSrc, address, zip, state }) {
+export default function Properties({ property, isListView }) {
   return (
     <Box
-      maxW="sm"
+      maxW={isListView ? "full" : "sm"} // Add this
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
       p={4}
-      my={10}
-      mx={10}
-      position="relative"
+      mb={4}
       style={{ cursor: "pointer" }}
     >
-      <Image src={imgSrc} alt={address} />
-
-      <Box
-        position="absolute"
-        bottom="0"
-        left={0}
-        right={0}
-        p="5"
-        bgColor="rgba(0, 0, 0, 0.8)"
-      >
-        <VStack alignItems="start" spacing="1">
-          <Text fontSize="2xl" color="white" fontWeight="bold">
-            {address}
-          </Text>
-          <Text fontSize="md" color="white">
-            {zip}, {state}
-          </Text>
-        </VStack>
-      </Box>
+      {isListView ? (
+        <Flex align="center" justify="space-between">
+          <Box w="100vh">
+            {" "}
+            <Heading as="h3" size="lg">
+              {property.address}
+            </Heading>
+            <Text color="gray.500" fontSize="sm">
+              {property.zip}, {property.state}
+            </Text>
+          </Box>
+        </Flex>
+      ) : (
+        <>
+          <Image src={property.imgSrc} alt="Property" />
+          <Box mt={2}>
+            <Box display="flex" alignItems="baseline">
+              <Heading as="h3" size="lg">
+                {property.address}
+              </Heading>
+            </Box>
+            <Text color="gray.500" fontSize="sm">
+              {property.zip}, {property.state}
+            </Text>
+          </Box>
+        </>
+      )}
     </Box>
   );
 }
-
-Properties.propTypes = {
-  imgSrc: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  zip: PropTypes.string.isRequired,
-  state: PropTypes.string.isRequired,
-};
