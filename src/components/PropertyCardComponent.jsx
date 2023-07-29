@@ -1,5 +1,13 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Badge, Box, Image } from "@chakra-ui/react";
+import {
+  Badge,
+  Box,
+  Image,
+  Stat,
+  StatHelpText,
+  StatLabel,
+  StatNumber,
+} from "@chakra-ui/react";
 import { PropertyCardPropTypes } from "../prop-types";
 
 export default function PropertyCardComponent({ property, onClick }) {
@@ -44,24 +52,9 @@ export default function PropertyCardComponent({ property, onClick }) {
         </Box>
 
         <Box>
-          {property.formattedPrice}
-          <Box as="span" color="gray.600" fontSize="sm">
-            / wk
-          </Box>
-        </Box>
-
-        <Box display="flex" mt={2} alignItems="center">
-          {Array(5)
-            .fill("")
-            .map((_, i) => (
-              <StarIcon
-                key={i}
-                color={i < property.rating ? "teal.500" : "gray.300"}
-              />
-            ))}
-          <Box as="span" ml={2} color="gray.600" fontSize="sm">
-            {property.reviewCount} reviews
-          </Box>
+          <Stat>
+            <StatNumber>{property.formattedPrice}</StatNumber>
+          </Stat>
         </Box>
       </Box>
     </Box>
