@@ -20,8 +20,13 @@ import { useEffect, useState } from "react";
 import darkLogo from "../assets/DarkModeLogo.png";
 import lightLogo from "../assets/LightModeLogo.png";
 import { NavLink } from "react-router-dom";
-import { signInWithPopup, signOut } from "firebase/auth";
+import {
+  browserPopupRedirectResolver,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import { auth, provider } from "../services/firebase";
+import { useDispatch } from "react-redux";
 
 const NavBar = () => {
   const { toggleColorMode, colorMode } = useColorMode();
@@ -69,7 +74,14 @@ const NavBar = () => {
           />
         </NavLink>
       </Box>
+
       <Box ml="auto" display={{ base: "none", md: "flex" }} alignItems="center">
+        <Box>
+          <NavLink exact to="/wholesale" activeClassName="active">
+            Add Listing
+          </NavLink>
+        </Box>
+
         <Box mx={2}>
           {auth.currentUser === null ? (
             <Button mx={2} colorScheme="purple" onClick={googlSignIn}>

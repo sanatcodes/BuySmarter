@@ -19,7 +19,6 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.role = action.payload.role;
       state.isLoggedIn = true;
-      state.isGoogleSignIn = action.payload.isGoogleSignIn;
     },
     logOut(state) {
       state.id = null;
@@ -27,7 +26,6 @@ const userSlice = createSlice({
       state.email = null;
       state.role = null;
       state.isLoggedIn = false;
-      state.isGoogleSignIn = false;
     },
   },
 });
