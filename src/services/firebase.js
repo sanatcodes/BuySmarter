@@ -10,13 +10,13 @@ import { GoogleAuthProvider } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDsAcDAbccFtfZns0XZc22iEdqbXe0gKv0",
-  authDomain: "buysmarter2.firebaseapp.com",
-  projectId: "buysmarter2",
-  storageBucket: "buysmarter2.appspot.com",
-  messagingSenderId: "1041311981813",
-  appId: "1:1041311981813:web:0f7e9e6fc3a6e24443e5bc",
-  measurementId: "G-PKX0NNJK90",
+  apiKey: "AIzaSyBKGxB_suE1ANre6Yot3sQsMYBorazMOLY",
+  authDomain: "buysmarter-b2558.firebaseapp.com",
+  projectId: "buysmarter-b2558",
+  storageBucket: "buysmarter-b2558.appspot.com",
+  messagingSenderId: "311253872304",
+  appId: "1:311253872304:web:1a2f3b463fb2e51c1c1575",
+  measurementId: "G-VT1B33TGK4",
 };
 
 // Initialize Firebase

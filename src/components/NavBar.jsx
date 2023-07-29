@@ -76,9 +76,14 @@ const NavBar = () => {
       </Box>
 
       <Box ml="auto" display={{ base: "none", md: "flex" }} alignItems="center">
-        <Box>
+        <Box ml>
           <NavLink exact to="/wholesale" activeClassName="active">
             Add Listing
+          </NavLink>
+        </Box>
+        <Box ml="4">
+          <NavLink exact to="/wholesaleDashboard" activeClassName="active">
+            Dashboard
           </NavLink>
         </Box>
 
